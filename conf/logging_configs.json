@@ -29,14 +29,14 @@
       "class": "logging.handlers.TimedRotatingFileHandler",
       "formatter": "simpleFormatter",
       "level": "INFO",
-      "filename": "logs/ml-prediction-web-service.log",
+      "filename": "logs/langchain-fastapi-app.log",
       "when": "midnight"
     },
     "fileHandlerError": {
       "class": "logging.handlers.TimedRotatingFileHandler",
       "formatter": "simpleFormatter",
       "level": "ERROR",
-      "filename": "logs/ml-prediction-web-service.err",
+      "filename": "logs/langchain-fastapi-app.err",
       "when": "midnight"
     },
     "console": {

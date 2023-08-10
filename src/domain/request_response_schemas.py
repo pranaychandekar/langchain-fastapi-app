@@ -9,26 +9,25 @@ class BuildResponse(BaseModel):
     Build Response Schema
     """
 
-    service: str = Field(..., example="ml-prediction-web-service")
-    version: str = Field(..., example="2.0.0")
+    service: str = Field(..., example="langchain-fastapi-app")
+    version: str = Field(..., example="1.0.0")
     author: str = Field(..., example="Pranay Chandekar")
     linkedIn: str = Field(..., example="https://www.linkedin.com/in/pranaychandekar/")
     message: str = Field(..., example="The web service is up and running!")
 
 
-class PredictionServiceRequest(BaseModel):
+class LLMRequest(BaseModel):
     """
-    Prediction Service Request Schema
-    """
-
-    source: str = Field(..., min_length=1, example="openapi")
-    text: str = Field(..., min_length=1, example="Don't let the knives sink :P")
-
-
-class PredictionServiceResponse(BaseModel):
-    """
-    Prediction Service Response Schema
+    LLM Request Schema
     """
 
-    label: str = Field(..., example="knives")
-    confidence: float = Field(..., example=86.64)
+    source: str = Field(..., min_length=1, example="swagger")
+    text: str = Field(..., min_length=1, example="Tell me a joke")
+
+
+class LLMResponse(BaseModel):
+    """
+    LLM Response Schema
+    """
+
+    response: str = Field(..., example="Random Joke!'")

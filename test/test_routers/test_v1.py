@@ -9,7 +9,7 @@ import logging
 import unittest
 from unittest.mock import patch
 
-from src.domain.request_response_schemas import PredictionServiceRequest
+from src.domain.request_response_schemas import LLMRequest
 
 from src.routers.v1 import get_response
 
@@ -25,7 +25,7 @@ class TestV1(unittest.TestCase):
             "source": "pytest",
             "text": "Don't let the knives sink :P"
         }
-        prediction_service_request = PredictionServiceRequest.parse_obj(prediction_service_request_json)
+        prediction_service_request = LLMRequest.parse_obj(prediction_service_request_json)
 
         mock_prediction_service.get_response.return_value = {
             "label": "knives",

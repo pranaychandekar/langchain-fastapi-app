@@ -2,6 +2,6 @@
   "SOCKET_HOST": "0.0.0.0",
   "PORT": 8080,
   "RESOURCES_DIRECTORY": "resources/",
-  "MODEL_PATH": "resources/model/model.bin"
+  "MODEL_PATH": "resources/model/ggml-gpt4all-j-v1.3-groovy.bin"
 }
 

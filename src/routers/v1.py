@@ -1,29 +1,27 @@
 """
-Prediction Service End Point
+LLM Service End Point
 """
 from fastapi.routing import APIRouter
 
 from src.utils.logging_util import Logger, log_execution_time
 from src.domain.request_response_schemas import (
-    PredictionServiceRequest,
-    PredictionServiceResponse,
+    LLMRequest,
+    LLMResponse,
 )
-from src.services.prediction_service import PredictionService
+from src.services.llm_service import LLMService
 
 router = APIRouter()
 
 
-@router.post(
-    "/predict", tags=["Prediction Service"], response_model=PredictionServiceResponse
-)
+@router.post("/predict", tags=["LLM Service"], response_model=LLMResponse)
 @log_execution_time
-async def get_response(request: PredictionServiceRequest):
+async def get_response(request: LLMRequest):
     """
-    This end point predicts the label for the given text and returns the result in the response.
+    This end point generates the response of an LLM for the user query.
 
     :param request: The request for the API.
 
-    :return: The response with the prediction results.
+    :return: The LLM response.
     """
     Logger().get_instance().info("Request: %s", request.json())
-    return PredictionService.get_response(request.text)
+    return LLMService.get_response(request.text)

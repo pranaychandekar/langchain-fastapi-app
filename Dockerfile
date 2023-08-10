@@ -1,13 +1,13 @@
-FROM python:3.11-buster
+FROM python:3.11-slim
 
 MAINTAINER Pranay Chandekar "pranayc6@gmail.com"
 
-LABEL project="ml-prediction-web-service"
+LABEL project="langchain-fastapi-app"
 
 EXPOSE 8080
 
 ARG APP_HOME=/opt/deployment
-ARG PROJECT_NAME="ml-prediction-web-service"
+ARG PROJECT_NAME="langchain-fastapi-app"
 
 ENV APP_HOME=${APP_HOME} \
     PROJECT_NAME=${PROJECT_NAME} \
@@ -26,7 +26,6 @@ RUN pip3 install -r requirements.txt && \
 
 COPY src ${PROJECT_HOME}/src
 COPY app.py ${PROJECT_HOME}/
-COPY train.py ${PROJECT_HOME}/
 COPY conf ${PROJECT_HOME}/conf
 COPY resources ${PROJECT_HOME}/resources
 COPY *-server.sh ${APP_HOME}/
